@@ -1,3 +1,1 @@
-# ICONLAB
-# intelconstructlab.github.io
-# intelconstructlab.github.io
+# ICONLAB website hosted at: intelconstructlab.github.io
