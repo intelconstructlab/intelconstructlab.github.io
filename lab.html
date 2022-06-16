@@ -42,6 +42,9 @@
         <h2>Visiting Students</h2>
         <div id="visiting-grid" style="display: flex; flex-wrap: wrap;  width:100%;">
         </div>
+        <h2>Furry Members</h2>
+        <div id="furry-grid" style="display: flex; flex-wrap: wrap;  width:100%;">
+        </div>
         <h2>Alumni</h2>
         <div id="alumni-list">
         </div>
@@ -138,6 +141,19 @@
                     },
                 ]
             },
+
+            {
+                "subgroup": "Furry Members",
+                "members": [
+                    {
+                        "name": "Rex",
+                        "picture": "image/png/rex6.jpg",
+                        "link": "",
+                        "note": "Foodie, Cutie, Sportie, Smartie, Sleep Master"
+                    },
+                    
+                ]
+            },
             // {
             //     "subgroup": "UR5",
             //     "members": [
@@ -178,6 +194,8 @@
                     return document.getElementById("undergrad-grid");
                 case "Visiting Student":
                     return document.getElementById("visiting-grid");
+                case "Furry Members":
+                    return document.getElementById("furry-grid");
                 case "UR5":
                     return document.getElementById("robot-grid");
                 case "Alumni":
