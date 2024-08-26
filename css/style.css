@@ -4,11 +4,12 @@
 @import url(//fonts.googleapis.com/css?family=Pontano+Sans);
 
 :root {
-	--grey: rgb(90, 90, 90);
-	--blue1: rgb(12, 35, 68);
+	--black: rgb(0,0,0);
+    --grey: rgb(90, 90, 90);
+	--blue1: rgb(0, 56, 101);
 	--blue2: rgb(0, 85, 183);
 	--blue3: rgb(0,114,206);
-	--blue4: rgb(108,172,228);
+	--blue4: rgb(155,203,235);
 	--pink1: #F9564F;
     --width1: 900px;
  }
