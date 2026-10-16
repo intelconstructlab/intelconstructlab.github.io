@@ -219,3 +219,14 @@ h1[id] {
         font-size: 15px;
     }
 }
+
+.pub-year {
+    margin-top: 1.2em;
+    margin-bottom: 0.8em;
+    padding-bottom: 0.2em;
+    border-bottom: 1px solid #ddd;
+}
+
+.pub-venue {
+    font-style: italic;
+}
