@@ -230,3 +230,8 @@ h1[id] {
 .pub-venue {
     font-style: italic;
 }
+
+.pub-legend {
+    font-size: 0.9em;
+    margin-top: 0;
+}

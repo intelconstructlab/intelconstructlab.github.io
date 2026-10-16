@@ -588,6 +588,7 @@
 <div class="divider"></div>
 
 <h1 id="publications-title">Select Publications</h1>
+<p class="pub-legend"><b>Bold</b>: PI &nbsp;&nbsp; <u>Underline</u>: ICON students</p>
 <div class="section" id="publications"></div>
 
 
@@ -812,13 +813,19 @@
         //     "thumbnail": "",
         // },
     ]
+    let pi = "Zhengbo Zou";
+    let students = ["Lei Huang", "Weijia Cai", "Christine Suen", "Kangkang Duan", "Harry Zhang", "Hao Xuan Zhang",
+        "Rui Li", "Xuezheng Chen", "Mao Tian", "Xinhe Yang", "Zihan Zhu", "Qingyu Yan", "Yilin Yang", "Le Zhang"];
+    let formatAuthors = authors => authors.split(", ").map(a =>
+        a == pi ? `<b>${a}</b>` : students.includes(a) ? `<u>${a}</u>` : a).join(", ");
+
     let section = document.getElementById("publications");
     // newest year first; within a year, entries later in the list show first
     let sorted = publications.slice().reverse().sort((a, b) => b["year"] - a["year"]);
     let lastYear = null;
     sorted.forEach(publication => {
         let name = publication["name"];
-        let authors = publication["authors"];
+        let authors = formatAuthors(publication["authors"]);
         let venue = publication["venue"];
         let year = publication["year"];
         let paper = publication["paper"];
