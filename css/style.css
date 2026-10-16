@@ -190,11 +190,32 @@ h1[id] {
 
 #nav {
     display: flex;
+    align-items: center;
     gap: 1.5em;
+}
+
+#nav-github {
+    display: flex;
 }
 
 .news-item {
     width: 100%;
     color: var(--black);
     margin-bottom: 0.75em;
+}
+
+/* keep the top bar inside narrow windows */
+@media (max-width: 920px) {
+    #header {
+        width: 100%;
+        left: 0;
+        box-sizing: border-box;
+    }
+
+    #nav {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 0 1em;
+        font-size: 15px;
+    }
 }
