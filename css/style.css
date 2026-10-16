@@ -1,8 +1,3 @@
-@import url(//fonts.googleapis.com/css?family=Open+Sans);
-@import url(//fonts.googleapis.com/css?family=Roboto);
-@import url(//fonts.googleapis.com/css?family=Fascinate);
-@import url(//fonts.googleapis.com/css?family=Pontano+Sans);
-
 :root {
 	--black: rgb(0,0,0);
     --grey: rgb(90, 90, 90);
@@ -28,7 +23,7 @@ html, p{
 }
 p{
     /* margin: 0.2em; */
-    line-height: 1.3em;
+    line-height: 1.5;
 }
 
 ol, ul {
@@ -71,6 +66,7 @@ b {
 body{
     width: var(--width1);
     margin: 0px auto;
+    font-size: 17px;
 }
 
 /**************************************************/
@@ -180,6 +176,8 @@ body{
 h3 {
     font-weight: 600;
     color: var(--blue1);
+    margin-top: 1em;
+    margin-bottom: 0.3em;
 }
 
 html {
@@ -193,4 +191,10 @@ h1[id] {
 #nav {
     display: flex;
     gap: 1.5em;
+}
+
+.news-item {
+    width: 100%;
+    color: var(--black);
+    margin-bottom: 0.75em;
 }
