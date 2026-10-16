@@ -235,3 +235,14 @@ h1[id] {
     font-size: 0.9em;
     margin-top: 0;
 }
+
+.community-list {
+    color: var(--black);
+    padding-left: 1.2em;
+    margin-top: 0;
+}
+
+.community-list li {
+    list-style-type: disc;
+    line-height: 1.6;
+}
