@@ -16,12 +16,13 @@
 <body>
     <header id="header" style="display:flex; justify-content: space-between; padding-left:10px;padding-right:10px;">
         <a href="index.html"><img style="width: 32px;height:30px;" src="image/icons/favicon.png" /></a>
-        <div style="width: calc(var(--width1)/6); display:flex; justify-content: space-between;">
-            <!-- <a href="index.html" >Home</a> -->
-            <!-- <a href="lab.html">ICONs</a>
-            <a href="research.html">Research</a> -->
-            <!-- <a href="fun.html" >Fun</a> -->
-        </div>
+        <nav id="nav">
+            <a href="#joining">Joining</a>
+            <a href="#members">Members</a>
+            <a href="#open-data">Open Data</a>
+            <a href="#news">News</a>
+            <a href="#publications-title">Publications</a>
+        </nav>
     </header>
 
     <div style="display: flex; overflow:visible; margin-bottom: 4em; padding-top: 90px;">
@@ -65,7 +66,7 @@
 	<div class="divider"></div>
 
 	<div class="profile" style="margin-top: 2em;margin-bottom: 1em;">
-		<h1>Joining ICON</h1>
+		<h1 id="joining">Joining ICON</h1>
 		<p style="color:var(--black)">If you're a Columbia student interested in working with us, please email Zhengbo with the subject line "Columbia student research request - YOUR NAME". If you're a prospective PhD student, please apply directly to the corresponding program and select Zhengbo as your preferred advisor in your application.
 		</p>
 		<br>
@@ -81,12 +82,21 @@
 <div style="margin-top: 2em;margin-bottom: 4em;">
 
 <div class="section" >
-    <h1>Members</h1>
+    <h1 id="members">Members</h1>
     <div id="current-grid" style="display: flex; flex-wrap: wrap; width:100%;"></div>
     <!-- <h2>Furry Members</h2>
     <div id="furry-grid" style="display: flex; flex-wrap: wrap;  width:100%;"></div> -->
     <h2>Alumni</h2>
-    <div id="alumni-list"></div>
+    <h3>PhD</h3>
+    <div id="alumni-phd"></div>
+    <h3>Master's</h3>
+    <div id="alumni-masters"></div>
+    <h3>Bachelor's</h3>
+    <div id="alumni-bachelors"></div>
+    <h3>High School</h3>
+    <div id="alumni-highschool"></div>
+    <h3>Visiting</h3>
+    <div id="alumni-visiting"></div>
 </div>
 
 <script>
@@ -204,69 +214,85 @@
             "members": [
                 {
                     "name": "Zaolin Pan",
+                    "degree": "visiting",
                     "picture": "image/photos/zaolin.jpg",
                     // "link": "https://",
                     "note": "Current Placement: Postdoc @ HKUST"
                 },
                 {
                     "name": "Tong Ren",
+                    "degree": "masters",
                     "picture": "image/photos/tong.jpg",
                     "link": "https://www.linkedin.com/in/rentonren",
                     "note": "Current Placement: Research Assistant @ HKUST"
                 },
                 {
                     "name": "Xinhe Yang",
+                    "degree": "masters",
                     "picture": "image/photos/xinhe.png",
                     // "link": "https://",
                     "note": "Current Placement:"
                 },
                 {
                     "name": "Kangkang Duan",
+                    "degree": "phd",
                     "picture": "image/photos/kangkang.jpg",
                     "link": "https://kangk906.github.io/",
                     "note": "Current Placement: Research Scientist @ HUAWEI 2012 Lab"
                 },
                 {
                     "name": "Mao Tian",
+                    "degree": "masters",
                     "picture": "image/photos/mao.jpg",
                     // "link": "https://",
                     "note": "Current Placement: "
                 },
                 {
                     "name": "Xuezheng Chen",
+                    "degree": "masters",
                     "picture": "image/photos/xuezheng.JPG",
                     // "link": "https://",
                     "note": "Current Placement: PhD student in Mechanical Engineering at UBC"
                 },
                 {
                     "name": "Rui Li",
+                    "degree": "masters",
                     "picture": "image/photos/rui.jpg",
                     // "link": "https://",
                     "note": "Current Placement: PhD student in Forestry at UBC"
                 },
                 {
                     "name": "Royce Zhang",
+                    "degree": "bachelors",
                     "picture": "image/photos/royce.jpg",
                     // "link": "https://",
                     "note": "Current Placement: "
                 },
                 {
                     "name": "Aaron Yang",
+                    "degree": "bachelors",
                     "picture": "image/photos/aaron.jpg",
                     // "link": "https://",
                     "note": "Current Placement: BSc student at UBC"
                 },
                 {
                     "name": "Zihan Zhu",
+                    "degree": "bachelors",
                     "picture": "image/photos/zihan.jpg",
                     // "link": "https://",
                     "note": "Current Placement: PhD student in Computer Science at Université de Montréal & Mila"
                 },
                 {
                     "name": "Rosaline Baek",
+                    "degree": "bachelors",
                     "picture": "image/photos/rosaline.jpg",
                     // "link": "https://",
                     "note": "Current Placement: MSc student in Computer Science at UBC"
+                },
+                {
+                    "name": "2026:",
+                    "degree": "highschool",
+                    "note": "Julien Baltrusaitis, Sophia Kadian, Benjamin Otto, Seraphine Penso"
                 },
                 // {
                 //     "name": "Kang Yang",
@@ -289,17 +315,20 @@
         switch (subgroupName) {
             case "Current":
                 return document.getElementById("current-grid");
-            case "Alumni":
-                return document.getElementById("alumni-list");
+
         }
     }
 
+    let memberLink = link => (!link || link == "https://" || link == "#") ? "#members" : link;
+
     group.forEach(subgroup => {
         let subgroupName = subgroup["subgroup"];
-        let section = getSection(subgroupName);
         subgroup["members"].forEach(member => {
+            let section = subgroupName == "Alumni" ?
+                document.getElementById("alumni-" + member["degree"]) :
+                getSection(subgroupName);
             let cell = subgroupName == "Alumni" ?
-                `<a href=${member["link"] == undefined ? "#" : member["link"]}>
+                `<a href=${memberLink(member["link"])}>
                 <div style="margin-bottom: 5px;">
                     <b>${member["name"]}</b>
                     <p style="display:inline;"> 
@@ -309,7 +338,7 @@
             </a>
             `:
                 `<div style="width:240px; text-align: center; margin-right: 40px; margin-bottom: 35px;">
-                <a href=${member["link"] == undefined ? "#" : member["link"]} style="display:block;">
+                <a href=${memberLink(member["link"])} style="display:block;">
                     <img style="width: 100%; border-radius:5px;" src="${member["picture"]}"/>
                     <b>${member["name"]}</b>
                 </a>
@@ -330,7 +359,7 @@
 <div class="divider"></div>
 
 
-<h1>Open Data</h1>
+<h1 id="open-data">Open Data</h1>
 
 
 <p style="font-size:18px; width:100%; color:var(--black); margin-bottom: 0.75em;">
@@ -355,7 +384,7 @@
 <div style="margin-top: 2em;margin-bottom: 4em;"></div>
 <div class="divider"></div>
 
-<h1>News</h1>
+<h1 id="news">News</h1>
 
 <p style="font-size:18px; width:100%; color:var(--black); margin-bottom: 0.75em;">
     [09/2026] Zhengbo delivers keynote titled "Two years to build, fifty to maintain" at the <a href="https://nerc2026.github.io/">2026 Northeast Robotics Colloquium (NERC) at Princeton University</a>.  
@@ -556,7 +585,7 @@
 <div style="margin-top: 2em;margin-bottom: 4em;"></div>
 <div class="divider"></div>
 
-<h1>Select Publications</h1>
+<h1 id="publications-title">Select Publications</h1>
 <div class="section" id="publications"></div>
 
 
