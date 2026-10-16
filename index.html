@@ -49,7 +49,7 @@
                 <!-- Our focus -->
                
                 We embed intelligence and advance automation in the life-cycle of design, construction and maintenance of civil infrastructure. <br><br>
-                We are part of <a href="https://cail.columbia.edu">CAIL - Columbia Core AI Lab</a>, working on robotics and physical AI.
+                We are part of <a href="https://cail.columbia.edu">CAIL - Columbia Core AI Lab</a>, focusing on robotics and physical AI.
                 
             </p>
             <br>
@@ -136,7 +136,7 @@
                 {
                     "name": "Harry Zhang",
                     "picture": "image/photos/harry.jpg",
-                    "link": "https://",
+                    "link": "https://scholar.google.com/citations?user=xbjgBKgAAAAJ&hl=zh-CN",
                     "note": "Visiting PhD Candidate from UBC"
                 },
                 {
@@ -217,7 +217,7 @@
                     "name": "Zaolin Pan",
                     "degree": "visiting",
                     "picture": "image/photos/zaolin.jpg",
-                    // "link": "https://",
+                    "link": "https://scholar.google.com/citations?user=cA40V3oAAAAJ&hl=zh-CN",
                     "note": "Current Placement: Postdoc @ HKUST"
                 },
                 {
@@ -252,19 +252,26 @@
                     "name": "Xuezheng Chen",
                     "degree": "masters",
                     "picture": "image/photos/xuezheng.JPG",
-                    // "link": "https://",
+                    "link": "https://www.linkedin.com/in/xuezheng-chen-688591188/",
                     "note": "Current Placement: PhD student in Mechanical Engineering at UBC"
                 },
                 {
                     "name": "Rui Li",
                     "degree": "masters",
                     "picture": "image/photos/rui.jpg",
-                    // "link": "https://",
+                    "link": "https://scholar.google.com/citations?user=rz_hE9EAAAAJ&hl=en",
                     "note": "Current Placement: PhD student in Forestry at UBC"
+                },
+                {
+                    "name": "Shengzhe Zhang",
+                    "degree": "bachelors",
+                    "link": "https://sites.utexas.edu/rausch/people/",
+                    "note": "Current Placement: PhD student in Civil Engineering at UT Austin"
                 },
                 {
                     "name": "Qingyu Yan",
                     "degree": "bachelors",
+                    "link": "https://scholar.google.com/citations?user=LXWvlKEAAAAJ&hl=zh-CN",
                     "note": "Current Placement: MS student in Computer Science at Columbia"
                 },
                 {
@@ -284,7 +291,7 @@
                     "name": "Zihan Zhu",
                     "degree": "bachelors",
                     "picture": "image/photos/zihan.jpg",
-                    // "link": "https://",
+                    "link": "https://scholar.google.com/citations?user=nj3vzf4AAAAJ&hl=en",
                     "note": "Current Placement: PhD student in Computer Science at Université de Montréal & Mila"
                 },
                 {
@@ -335,7 +342,7 @@
                 document.getElementById("alumni-" + member["degree"]) :
                 getSection(subgroupName);
             let cell = subgroupName == "Alumni" ?
-                `<a href=${memberLink(member["link"])}>
+                `<a href="${memberLink(member["link"])}">
                 <div style="margin-bottom: 5px;">
                     <b>${member["name"]}</b>
                     <p style="display:inline;"> 
@@ -345,7 +352,7 @@
             </a>
             `:
                 `<div style="width:240px; text-align: center; margin-right: 40px; margin-bottom: 25px;">
-                <a href=${memberLink(member["link"])} style="display:block;">
+                <a href="${memberLink(member["link"])}" style="display:block;">
                     <img style="width: 100%; border-radius:5px;" src="${member["picture"]}"/>
                     <b>${member["name"]}</b>
                 </a>
