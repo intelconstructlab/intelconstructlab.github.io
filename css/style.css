@@ -246,3 +246,7 @@ h1[id] {
     list-style-type: disc;
     line-height: 1.6;
 }
+
+.no-link b {
+    color: var(--black);  /* navy alternative: var(--blue1) */
+}

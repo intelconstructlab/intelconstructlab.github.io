@@ -333,7 +333,11 @@
         }
     }
 
-    let memberLink = link => (!link || link == "https://" || link == "#") ? "#members" : link;
+    let hasLink = link => link && link != "https://" && link != "#";
+    // people with a real link get an <a>; everyone else gets plain, non-clickable text
+    let linkWrap = (member, inner, style = "") => hasLink(member["link"]) ?
+        `<a href="${member["link"]}" ${style}>${inner}</a>` :
+        `<div class="no-link">${inner}</div>`;
 
     group.forEach(subgroup => {
         let subgroupName = subgroup["subgroup"];
@@ -341,24 +345,19 @@
             let section = subgroupName == "Alumni" ?
                 document.getElementById("alumni-" + member["degree"]) :
                 getSection(subgroupName);
+            let note = member["note"] == undefined ? "" : member["note"];
             let cell = subgroupName == "Alumni" ?
-                `<a href="${memberLink(member["link"])}">
+                linkWrap(member, `
                 <div style="margin-bottom: 5px;">
                     <b>${member["name"]}</b>
-                    <p style="display:inline;"> 
-                    ${member["note"] == undefined ? "" : member["note"]}
-                    </p>
-                </div>
-            </a>
-            `:
+                    <p style="display:inline;"> ${note}</p>
+                </div>`)
+            :
                 `<div style="width:240px; text-align: center; margin-right: 40px; margin-bottom: 25px;">
-                <a href="${memberLink(member["link"])}" style="display:block;">
+                ${linkWrap(member, `
                     <img style="width: 100%; border-radius:5px;" src="${member["picture"]}"/>
-                    <b>${member["name"]}</b>
-                </a>
-                <p style="margin: 0;"> 
-                ${member["note"] == undefined ? "" : member["note"]}
-                </p>
+                    <b>${member["name"]}</b>`, 'style="display:block;"')}
+                <p style="margin: 0;"> ${note}</p>
             </div>
             `;
             section.insertAdjacentHTML('beforeend', cell);
