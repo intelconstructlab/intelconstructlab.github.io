@@ -250,3 +250,99 @@ h1[id] {
 .no-link b {
     color: var(--black);  /* navy alternative: var(--blue1) */
 }
+
+/* ---------- phones and narrow windows (all pages) ---------- */
+@media (max-width: 940px) {
+    body {
+        width: auto;
+        padding: 0 16px;
+    }
+
+    #header {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    /* main page: top section */
+    .hero-text {
+        width: auto !important;
+        flex: 1 1 auto;
+    }
+
+    .hero-logo {
+        width: auto !important;
+        flex: 0 0 auto;
+        padding-top: 1em;
+    }
+
+    .hero-logo img {
+        position: static !important;
+        width: 180px;
+    }
+}
+
+@media (max-width: 600px) {
+    /* nav scrolls sideways instead of wrapping out of the bar */
+    #nav {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+        white-space: nowrap;
+        gap: 1em;
+        margin-left: 1em;
+        scrollbar-width: none;
+    }
+
+    #nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    #header > a:first-child {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    #nav {
+        height: 2em;
+        line-height: 2em;
+        align-items: center;
+        overflow-y: hidden;
+    }
+
+    .hero-title {
+        font-size: 34px !important;
+    }
+
+    .hero-logo {
+        display: none;
+    }
+
+    /* members: two photos per row */
+    #current-grid {
+        justify-content: space-between;
+    }
+
+    .member-card {
+        width: calc(50% - 8px) !important;
+        margin-right: 0 !important;
+    }
+
+    /* publications: thumbnail above the text */
+    .pub-item {
+        flex-direction: column;
+        align-items: flex-start !important;
+    }
+
+    .pub-thumb {
+        width: 100%;
+        height: auto;
+        max-height: 220px;
+        margin-right: 0;
+        margin-bottom: 0.6em;
+    }
+}

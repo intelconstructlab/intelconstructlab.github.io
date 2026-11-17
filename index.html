@@ -4,6 +4,7 @@
 
 <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="icon" sizes="180x180" href="image/icons/favicon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="image/icons/favicon.png">
@@ -28,10 +29,10 @@
         </nav>
     </header>
 
-    <div style="display: flex; overflow:visible; margin-bottom: 2em; padding-top: 90px;">
-        <div style="width:calc(var(--width1)*0.8);">
+    <div class="hero" style="display: flex; overflow:visible; margin-bottom: 2em; padding-top: 90px;">
+        <div class="hero-text" style="width:calc(var(--width1)*0.8);">
             <div style="display:flex;">
-                <p style="font-size:45px; font-weight: 600; line-height: 1; color:var(--blue1); margin-left: 0px;">
+                <p class="hero-title" style="font-size:45px; font-weight: 600; line-height: 1; color:var(--blue1); margin-left: 0px;">
                      
                     <br>
                     ICON Lab @ Columbia
@@ -58,7 +59,7 @@
                 <a style="font-weight: 600;" href="https://">Twitter</a> -->
             
         </div>
-        <div style="width:calc(var(--width1)*0.65); position:relative;">
+        <div class="hero-logo" style="width:calc(var(--width1)*0.65); position:relative;">
             <!-- <video style="position:absolute; top:-150px;left:100px; z-index: -1;" width=350px autoplay loop muted>
                 <source src="assets/flingbot-cair-logo.mp4" type="video/mp4">
             </video> -->
@@ -353,7 +354,7 @@
                     <p style="display:inline;"> ${note}</p>
                 </div>`)
             :
-                `<div style="width:240px; text-align: center; margin-right: 40px; margin-bottom: 25px;">
+                `<div class="member-card" style="width:240px; text-align: center; margin-right: 40px; margin-bottom: 25px;">
                 ${linkWrap(member, `
                     <img style="width: 100%; border-radius:5px;" src="${member["picture"]}"/>
                     <b>${member["name"]}</b>`, 'style="display:block;"')}
@@ -399,6 +400,9 @@
 
 <h1 id="news">News</h1>
 
+<p class="news-item">
+    [11/2026] ICON Lab hosts the inaugural <a href="workshop2026.html">Mini Construction Robotics Workshop</a> with the <a href="https://www.adelresearchgroup.org/">Adel Research Group</a> (Princeton University) and <a href="https://you.stonybrook.edu/crosslab/">CROSS Lab</a> (Stony Brook University) on Nov. 20, 2026. 
+</p>
 <p class="news-item">
     [10/2026] Zhengbo gives a talk at the seminar series of the <a href="https://engineering.purdue.edu/CCE">Lyles School of Civil and Construction Engineering at Purdue University</a>.  
 </p>
